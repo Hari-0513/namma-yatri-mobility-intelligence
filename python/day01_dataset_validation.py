@@ -1,38 +1,14 @@
-"""
-Bengaluru Mobility Intelligence
-Day 01 - Dataset Validation
-
-Purpose:
-    Validate the raw Namma Yatri Bengaluru ward-level dataset before
-    cleaning, SQL loading, or Power BI development.
-
-Input:
-    data/raw/All-time Table-Bangalore-Wards.csv
-
-Output:
-    reports/day01_dataset_validation.txt
-
-Important:
-    This script DOES NOT modify the raw dataset.
-"""
-
 from pathlib import Path
 import pandas as pd
 
-
-# ---------------------------------------------------------------------
 # 1. PROJECT PATHS
-# ---------------------------------------------------------------------
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 RAW_FILE = PROJECT_ROOT / "data" / "raw" / "All-time Table-Bangalore-Wards.csv"
 REPORT_FILE = PROJECT_ROOT / "reports" / "day01_dataset_validation.txt"
 
-
-# ---------------------------------------------------------------------
 # 2. LOAD RAW DATA
-# ---------------------------------------------------------------------
 
 if not RAW_FILE.exists():
     raise FileNotFoundError(
@@ -42,21 +18,14 @@ if not RAW_FILE.exists():
 
 df = pd.read_csv(RAW_FILE)
 
-
-# ---------------------------------------------------------------------
 # 3. BASIC DATASET INFORMATION
-# ---------------------------------------------------------------------
 
 row_count, column_count = df.shape
-
 columns = df.columns.tolist()
 data_types = df.dtypes.astype(str)
-
 missing_values = df.isna().sum()
 total_missing_values = int(missing_values.sum())
-
 duplicate_rows = int(df.duplicated().sum())
-
 ward_count = int(df["Ward"].nunique())
 
 total_row_mask = (
@@ -70,10 +39,7 @@ total_row_mask = (
 total_row_count = int(total_row_mask.sum())
 actual_ward_count = ward_count - total_row_count
 
-
-# ---------------------------------------------------------------------
 # 4. NUMERIC-TYPE CHECK
-# ---------------------------------------------------------------------
 
 numeric_columns = [
     "Searches",
@@ -109,15 +75,9 @@ percentage_columns_stored_as_object = [
     if column in df.columns and not pd.api.types.is_numeric_dtype(df[column])
 ]
 
-
-# ---------------------------------------------------------------------
 # 5. DATASET PERIOD / TIME CHECK
-# ---------------------------------------------------------------------
 
 date_columns = []
-
-# Only inspect columns whose names suggest a date/time field.
-# This avoids falsely interpreting ordinary numeric values as dates.
 for column in df.columns:
     column_name = str(column).lower()
     if any(keyword in column_name for keyword in ["date", "time", "timestamp"]):
@@ -125,13 +85,9 @@ for column in df.columns:
         if parsed.notna().mean() >= 0.80:
             date_columns.append(column)
 
-
-# ---------------------------------------------------------------------
 # 6. GENERATE VALIDATION REPORT
-# ---------------------------------------------------------------------
 
 report_lines = []
-
 report_lines.append("BENGALURU MOBILITY INTELLIGENCE")
 report_lines.append("DAY 01 - DATASET VALIDATION REPORT")
 report_lines.append("=" * 60)
