@@ -1,0 +1,89 @@
+BENGALURU MOBILITY INTELLIGENCE
+DAY 01 - DATASET VALIDATION REPORT
+============================================================
+
+1. FILE
+------------------------------------------------------------
+Input file: All-time Table-Bangalore-Wards.csv
+
+2. DATASET SIZE
+------------------------------------------------------------
+Rows: 245
+Columns: 18
+
+3. COLUMN NAMES AND DATA TYPES
+------------------------------------------------------------
+Ward -> object
+Searches -> object
+Searches which got estimate -> object
+Searches for Quotes -> object
+Searches which got Quotes -> object
+Bookings -> object
+Completed Trips -> object
+Search-to-estimate Rate -> object
+Estimate-to-search for quotes Rate -> object
+Quote Acceptance Rate -> object
+Quote-to-booking Rate -> object
+Cancelled Bookings -> object
+Booking Cancellation Rate -> object
+Conversion Rate -> object
+Drivers' Earnings -> object
+Average Distance per Trip (km) -> float64
+Average Fare per Trip -> object
+Distance Travelled (km) -> object
+
+4. MISSING VALUES
+------------------------------------------------------------
+Total missing values: 0
+
+5. DUPLICATES
+------------------------------------------------------------
+Duplicate rows: 0
+
+6. WARD CHECK
+------------------------------------------------------------
+Unique Ward values: 245
+Overall total rows: 1
+Actual ward rows: 244
+Overall total label detected: Bangalore Total
+
+7. NUMERIC COLUMNS CURRENTLY STORED AS TEXT
+------------------------------------------------------------
+Searches
+Searches which got estimate
+Searches for Quotes
+Searches which got Quotes
+Bookings
+Completed Trips
+Cancelled Bookings
+Drivers' Earnings
+Average Fare per Trip
+Distance Travelled (km)
+
+8. PERCENTAGE COLUMNS CURRENTLY STORED AS TEXT
+------------------------------------------------------------
+Search-to-estimate Rate
+Estimate-to-search for quotes Rate
+Quote Acceptance Rate
+Quote-to-booking Rate
+Booking Cancellation Rate
+Conversion Rate
+
+9. DATE/TIME CHECK
+------------------------------------------------------------
+No date/time column detected.
+
+10. VALIDATION SUMMARY
+------------------------------------------------------------
+Raw dataset loaded successfully: YES
+Raw dataset modified: NO
+Missing values: 0
+Duplicate rows: 0
+Actual ward records: 244
+Dataset granularity: Ward-level aggregate
+
+11. DAY 01 CONCLUSION
+------------------------------------------------------------
+The dataset is suitable for ward-level demand, booking-funnel, operational, geographic, distance, fare, and driver-earnings analysis.
+The dataset does not contain a usable ride-level date/time field, so hourly/daily time-series analysis and demand forecasting should not be assumed.
+Numeric, currency, and percentage fields stored as text will be handled during Day 02 data cleaning.
