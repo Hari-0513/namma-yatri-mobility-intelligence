@@ -1,0 +1,24 @@
+BENGALURU MOBILITY INTELLIGENCE
+DAY 02 - DATA CLEANING REPORT
+============================================================
+
+Original shape: 245 rows x 18 columns
+Cleaned shape:  245 rows x 19 columns
+
+Cleaning performed:
+- Standardized column names.
+- Removed leading/trailing whitespace from Ward values.
+- Added Is_Bangalore_Total to identify the city-total row.
+- Converted comma-formatted counts to numeric values.
+- Removed ₹ and comma formatting from monetary fields and converted them to numeric.
+- Removed % signs from rate fields and converted them to numeric percentage points.
+- Preserved the raw CSV unchanged.
+
+Validation:
+- Numeric conversion errors: 0
+- Percentage conversion errors: 0
+- Duplicate rows after cleaning: 0
+- Bangalore Total rows: 1
+
+Output:
+C:\Users\Harish\Downloads\Bengaluru Mobility Intelligence\data\processed\namma_yatri_bengaluru_cleaned.csv

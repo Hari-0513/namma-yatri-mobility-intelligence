@@ -13,24 +13,24 @@ Columns: 18
 
 3. COLUMN NAMES AND DATA TYPES
 ------------------------------------------------------------
-Ward -> object
-Searches -> object
-Searches which got estimate -> object
-Searches for Quotes -> object
-Searches which got Quotes -> object
-Bookings -> object
-Completed Trips -> object
-Search-to-estimate Rate -> object
-Estimate-to-search for quotes Rate -> object
-Quote Acceptance Rate -> object
-Quote-to-booking Rate -> object
-Cancelled Bookings -> object
-Booking Cancellation Rate -> object
-Conversion Rate -> object
-Drivers' Earnings -> object
+Ward -> str
+Searches -> str
+Searches which got estimate -> str
+Searches for Quotes -> str
+Searches which got Quotes -> str
+Bookings -> str
+Completed Trips -> str
+Search-to-estimate Rate -> str
+Estimate-to-search for quotes Rate -> str
+Quote Acceptance Rate -> str
+Quote-to-booking Rate -> str
+Cancelled Bookings -> str
+Booking Cancellation Rate -> str
+Conversion Rate -> str
+Drivers' Earnings -> str
 Average Distance per Trip (km) -> float64
-Average Fare per Trip -> object
-Distance Travelled (km) -> object
+Average Fare per Trip -> str
+Distance Travelled (km) -> str
 
 4. MISSING VALUES
 ------------------------------------------------------------
