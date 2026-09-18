@@ -1,0 +1,169 @@
+DAY 3 - DEMAND EXPLORATORY DATA ANALYSIS
+=======================================================
+
+Purpose
+-------
+Explore how Namma Yatri activity varies across Bengaluru wards, using
+searches, bookings, completed trips, and conversion rate.
+
+Dataset scope
+--------------
+Rows in cleaned dataset: 245
+Actual wards analysed: 244
+Bangalore Total row excluded from ward comparisons: Yes
+Important limitation: the dataset is all-time ward-level aggregate data.
+It does not contain dates, timestamps, or individual ride records.
+
+1. Overall ward-level activity
+-------------------------------
+Total searches across the 244 wards: 67,334,064
+Total bookings across the 244 wards: 29,453,513
+Total completed trips across the 244 wards: 18,628,581
+
+2. Top 10 wards by searches
+----------------------------
+            Ward  Searches
+     Other Wards   3071626
+  Shantala Nagar   2401161
+  Doddakanahalli   1727250
+      Bellanduru   1365703
+Suddagunte Palya   1320628
+           Agara   1226026
+         Adugodi   1191234
+     Koramangala   1169452
+    Marathahalli   1129332
+    Munnekollala    993367
+
+3. Top 10 wards by bookings
+----------------------------
+            Ward  Bookings
+     Other Wards    954414
+  Shantala Nagar    841607
+  Doddakanahalli    587089
+Suddagunte Palya    530825
+         Adugodi    522711
+     Koramangala    515062
+           Agara    508562
+      Bellanduru    440185
+   Vasanth Nagar    416058
+    Marathahalli    369706
+
+4. Top 10 wards by completed trips
+----------------------------------
+            Ward  Completed_Trips
+     Other Wards           589585
+  Shantala Nagar           474271
+  Doddakanahalli           350792
+           Agara           336728
+     Koramangala           334904
+         Adugodi           313312
+Suddagunte Palya           296399
+   Vasanth Nagar           262534
+      Bellanduru           257849
+   Hoysala Nagar           217110
+
+5. Lowest 10 wards by searches
+-------------------------------
+               Ward  Searches
+Devara Jeevanahalli      9611
+ Kempapura Agrahara     16628
+  Devaraj Urs Nagar     17831
+       Bapuji Nagar     18887
+ Lakshmi Devi Nagar     19623
+     Padarayanapura     20946
+     Chalavadipalya     23758
+Jagajivanaram Nagar     26740
+Vrisabhavathi Nagar     27199
+         Kaveripura     28034
+
+6. Lowest 10 wards by bookings
+-------------------------------
+               Ward  Bookings
+Devara Jeevanahalli      3730
+ Kempapura Agrahara      7934
+  Devaraj Urs Nagar      8724
+       Bapuji Nagar      9629
+     Padarayanapura      9934
+ Lakshmi Devi Nagar     10356
+     Chalavadipalya     11350
+         S K Garden     11800
+Jagajivanaram Nagar     13471
+   Rajeshwari Nagar     14391
+
+7. Lowest 10 wards by completed trips
+--------------------------------------
+               Ward  Completed_Trips
+Devara Jeevanahalli             1407
+  Devaraj Urs Nagar             4040
+ Kempapura Agrahara             4452
+       Bapuji Nagar             5074
+     Padarayanapura             5098
+     Chalavadipalya             6328
+         S K Garden             6492
+ Lakshmi Devi Nagar             6580
+Jagajivanaram Nagar             6957
+   Muneshwara Nagar             8025
+
+8. Demand concentration
+------------------------
+Top 10 wards share of searches: 23.16%
+Top 10 wards share of bookings: 19.31%
+Top 10 wards share of completed trips: 18.43%
+
+9. Relationship between activity measures
+------------------------------------------
+Correlation: searches vs bookings = 0.9792
+Correlation: searches vs completed trips = 0.9654
+Correlation indicates association, not causation.
+
+10. Highest conversion-rate wards
+---------------------------------
+                   Ward  Conversion_Rate  Searches  Bookings
+     Basaveshwara Nagar             46.4     58527     36131
+      Govindaraja Nagar             45.6     56479     33936
+              Girinagar             45.3    151298     92674
+          Kamakshipalya             44.2     57410     34658
+            Marenahalli             43.3     83523     49970
+              Attiguppe             43.2    122277     72200
+            Shivanagara             43.1     64174     37977
+Shakthi Ganapathi Nagar             43.1     45353     26831
+       Kadu Malleshwara             43.0    234374    139524
+    Maruthi Mandir ward             43.0     59573     35073
+
+11. Lowest conversion-rate wards
+--------------------------------
+               Ward  Conversion_Rate  Searches  Bookings
+Devara Jeevanahalli             14.6      9611      3730
+           Varthuru             15.6    402250    103606
+       Munnekollala             16.8    993367    297146
+       Marathahalli             18.0   1129332    369706
+         Bellanduru             18.9   1365703    440185
+          Chickpete             18.9    185488     92089
+        Other Wards             19.2   3071626    954414
+        AECS Layout             19.4    676398    222152
+     Shantala Nagar             19.8   2401161    841607
+     Doddakanahalli             20.3   1727250    587089
+
+12. What this tells us
+----------------------
+- Demand is geographically uneven: some wards generate substantially more searches and bookings than others.
+- Searches, bookings, and completed trips should be treated as related but distinct demand/activity measures.
+- Conversion rate adds a quality/efficiency dimension; high activity does not automatically mean high conversion.
+- The top-10 concentration figures quantify how much activity is concentrated in the busiest wards.
+- The results support ward-level demand and operational analysis in Power BI.
+
+13. What we cannot conclude
+-----------------------------
+- We cannot identify peak hours, weekdays, months, or seasonality because there is no time field.
+- We cannot analyse individual routes or pickup/drop locations because this is ward-level aggregate data.
+- We cannot claim that a ward causes higher demand based only on these correlations.
+- We should not invent demographic, traffic, weather, income, or service-level explanations without additional data.
+
+14. Files created
+------------------
+Summary CSV: data\processed\day03_ward_demand_summary.csv
+Figures:
+- reports/figures/day03_top_wards_by_searches.png
+- reports/figures/day03_top_wards_by_bookings.png
+- reports/figures/day03_top_wards_by_completed_trips.png
+- reports/figures/day03_searches_vs_bookings.png
