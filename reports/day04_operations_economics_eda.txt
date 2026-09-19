@@ -1,0 +1,99 @@
+DAY 4 — OPERATIONS & ECONOMICS EDA
+=====================================
+
+Scope
+-----
+Ward-level analysis using 244 actual wards. The Bangalore Total aggregate row was excluded from ward comparisons.
+
+City-level totals across the 244 wards
+--------------------------------------
+Bookings: 29,453,513
+Completed trips: 18,628,581
+Cancelled bookings: 10,817,296
+Drivers' earnings: 2,679,910,491.00
+Distance travelled (km): 152,007,558.00
+
+Derived city-level indicators
+-----------------------------
+Completion rate from bookings: 63.25%
+Cancellation rate from bookings: 36.73%
+Completed-trip-weighted average fare: 136.20
+Completed-trip-weighted average distance: 7.63 km
+Drivers' earnings per completed trip: 143.86
+Distance travelled per completed trip: 8.16 km
+
+Top 10 wards by booking cancellation rate
+------------------------------------------
+                        Ward  Bookings  Cancelled_Bookings  Booking_Cancellation_Rate
+         Devara Jeevanahalli      3730                2323                       62.3
+                   Chickpete     92089               57078                       62.0
+           Devaraj Urs Nagar      8724                4683                       53.7
+                  Cottonpete     32405               17281                       53.3
+              Padarayanapura      9934                4830                       48.6
+         Jagajivanaram Nagar     13471                6512                       48.3
+                Bapuji Nagar      9629                4552                       47.3
+Dharmaraya Swamy Temple Ward    154173               72800                       47.2
+           Sampangiram Nagar    355542              166584                       46.9
+              Gurappanapalya     95401               44650                       46.8
+
+Top 10 wards by average fare
+----------------------------
+              Ward  Completed_Trips  Average_Fare_Per_Trip
+  Chowdeswari Ward            26194                 193.13
+          Varthuru            62888                 190.49
+            Kogilu           104384                 190.25
+     Naganathapura            38620                 179.22
+Chatrapati Shivaji            70969                 176.51
+       Other Wards           589585                 175.04
+   Kalena Agrahara           120613                 172.89
+     Atturu Layout            37150                 169.54
+   Kempegowda Ward            54974                 168.46
+      Basavanapura            50465                 168.17
+
+Top 10 wards by average distance
+--------------------------------
+              Ward  Completed_Trips  Average_Distance_Per_Trip_Km
+  Chowdeswari Ward            26194                         11.42
+            Kogilu           104384                         11.34
+          Varthuru            62888                         10.96
+     Naganathapura            38620                         10.40
+       Other Wards           589585                         10.37
+Chatrapati Shivaji            70969                         10.02
+   Kalena Agrahara           120613                          9.98
+   Kempegowda Ward            54974                          9.86
+   Someshwara Ward            49328                          9.86
+         Chickpete            34980                          9.79
+
+Top 10 wards by drivers' earnings
+---------------------------------
+            Ward  Drivers_Earnings  Completed_Trips
+     Other Wards         120007713           589585
+  Shantala Nagar          71177412           474271
+  Doddakanahalli          59211778           350792
+           Agara          47568017           336728
+      Bellanduru          44694374           257849
+     Koramangala          44596808           334904
+         Adugodi          43890701           313312
+Suddagunte Palya          39411590           296399
+   Vasanth Nagar          35920222           262534
+    Marathahalli          35748713           202837
+
+Correlation checks
+------------------
+Completed Trips vs Driver Earnings: 0.9782
+Completed Trips vs Average Fare: 0.2347
+Average Distance vs Average Fare: 0.9900
+Bookings vs Cancellation Rate: 0.1431
+
+Interpretation notes
+--------------------
+1. Cancellation rate shows the share of bookings that were cancelled; the dataset does not explain why cancellations occurred.
+2. Fare and distance are examined as an association, not as proof that distance causes fare.
+3. Earnings and completed trips are compared to understand scale/economic relationships, not to claim causation.
+4. Estimated fare revenue and earnings-per-trip are analytical calculations from aggregate fields, not audited company financial figures.
+5. No hourly, daily, weekly, or monthly operational trends can be measured because the dataset has no date/time field.
+
+Outputs
+-------
+data/processed/day04_operations_economics_summary.csv
+reports/figures/day04/
