@@ -1,0 +1,51 @@
+DAY 5 — STATISTICS + FEATURE ENGINEERING
+==========================================
+
+Purpose
+-------
+Create interpretable analytical features and summarize distributional patterns before SQL Server and Power BI.
+
+Descriptive statistics
+----------------------
+Searches: mean=275959.28, median=168756.50, std=347944.87, min=9611.00, max=3071626.00
+Bookings: mean=120711.12, median=86567.50, std=125048.11, min=3730.00, max=954414.00
+Completed_Trips: mean=76346.64, median=54697.50, std=75808.80, min=1407.00, max=589585.00
+Conversion_Rate: mean=31.39, median=31.90, std=6.86, min=14.60, max=46.40
+Booking_Cancellation_Rate: mean=35.88, median=35.15, std=5.74, min=24.10, max=62.30
+Average_Fare_Per_Trip: mean=132.02, median=129.81, std=17.98, min=96.47, max=193.13
+Average_Distance_Per_Trip_Km: mean=7.41, median=7.22, std=1.14, min=5.01, max=11.42
+Drivers_Earnings: mean=10983239.72, median=7446229.50, std=12355040.01, min=190579.00, max=120007713.00
+
+Derived features
+-----------------
+- Completion_Rate_From_Bookings = Completed Trips / Bookings × 100
+- Fare_Per_Km = Average Fare / Average Distance per Trip
+- Earnings_Per_Completed_Trip = Drivers Earnings / Completed Trips
+- Distance_Per_Completed_Trip_Km = Distance Travelled / Completed Trips
+- Booking_to_Search_Rate = Bookings / Searches × 100
+- Percentile features for major volume/performance metrics
+- Quartile segments for demand, conversion and cancellation rate
+
+IQR outlier screening
+----------------------
+Searches: IQR=234908.0000; lower=-262404.2500; upper=677227.7500; flagged=16
+Bookings: IQR=108624.2500; lower=-117239.6250; upper=317257.3750; flagged=12
+Completed_Trips: IQR=70834.5000; lower=-76310.2500; upper=207027.7500; flagged=11
+Conversion_Rate: IQR=11.1750; lower=8.7875; upper=53.4875; flagged=0
+Booking_Cancellation_Rate: IQR=7.4500; lower=20.7000; upper=50.5000; flagged=4
+Average_Fare_Per_Trip: IQR=25.9475; lower=79.3663; upper=183.1563; flagged=3
+Average_Distance_Per_Trip_Km: IQR=1.6100; lower=4.1650; upper=10.6050; flagged=3
+Drivers_Earnings: IQR=9968270.7500; lower=-10971701.3750; upper=28901381.6250; flagged=13
+
+Interpretation rules
+--------------------
+- Descriptive statistics summarize the 244 observed wards; they do not establish causation.
+- Quartiles are relative to this dataset and are descriptive, not ML clusters.
+- IQR flags are screening indicators, not proof of bad data.
+- Fare-per-km is a derived comparison metric, not an official pricing formula.
+- Earnings-per-trip is derived from aggregate fields and is not an audited payout figure.
+- No temporal statistics or forecasting are possible because the dataset has no date/time field.
+
+Output
+------
+data/processed/day05_statistical_features.csv
